@@ -11,7 +11,13 @@ func Challenge1() (int, error) {
 		return 0, err
 	}
 
-	first, second, err := SumPairs(nums, 2020)
+	//first, second, err := SumPairs(nums, 2020)
+	answers, err := SumN(nums, 2, 2020)
+	if err != nil {
+		return 0, err
+	}
+	first := answers[0]
+	second := answers[1]
 	if err != nil {
 		return 0, err
 	}
@@ -25,9 +31,30 @@ func Challenge2() (int, error) {
 		return 0, err
 	}
 
-	first, second, third, err := SumTrips(nums, 2020)
+	//first, second, third, err := SumTrips(nums, 2020)
+	answers, err := SumN(nums, 3, 2020)
+	first := answers[0]
+	second := answers[1]
+	third := answers[2]
 	if err != nil {
 		return 0, err
 	}
 	return first * second * third, nil
+}
+
+func ChallengeX(n int) (int, error) {
+	nums, err := io.ReadIntsFile("./day1/d1c1.txt")
+	if err != nil {
+		return 0, err
+	}
+
+	answers, err := SumN(nums, n, 2020)
+	product := 1
+	for _, answer := range answers {
+		product *= answer
+	}
+	if err != nil {
+		return 0, err
+	}
+	return product, nil
 }

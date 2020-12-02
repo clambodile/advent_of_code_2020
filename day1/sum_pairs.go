@@ -1,6 +1,8 @@
 package day1
 
-import "errors"
+import (
+	"errors"
+)
 
 func SumPairs(nums []int, target int) (first, second int, err error) {
 
@@ -35,4 +37,35 @@ func SumTrips(nums[]int, target int) (first, second, third int, err error) {
 		singles = append(singles, n)
 	}
 	return 0, 0, 0, errors.New("no inputs match target")
+}
+
+func SumN(nums[]int, n, target int) ([]int, error) {
+	if n == 1 {
+		for _, num := range nums {
+			if num == target {
+				return []int{num}, nil
+			}
+		}
+		return []int{}, errors.New("no combination found")
+	}
+	for i, num := range nums {
+		newTarget := target - num
+		if newTarget < 0 {
+			return []int{}, errors.New("no combination found")
+		}
+		newNums := make([]int, len(nums))
+		ln := copy(newNums, nums)
+		if ln == 0 {
+			return []int{}, errors.New("no combination found")
+		}
+		newNums[i] = newNums[len(newNums) - 1]
+		newNums = newNums[:len(newNums) - 1]
+		companions, err := SumN(newNums, n - 1, newTarget)
+		if err != nil {
+			continue
+		}
+		companions = append(companions, num)
+		return companions, nil
+	}
+	return []int{}, errors.New("no combination found")
 }

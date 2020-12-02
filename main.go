@@ -6,5 +6,5 @@ import (
 )
 
 func main() {
-	fmt.Println(day1.Challenge2())
+	fmt.Println(day1.ChallengeX(2))
 }
