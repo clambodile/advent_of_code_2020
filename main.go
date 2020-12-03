@@ -2,9 +2,9 @@ package main
 
 import (
 	"fmt"
-	"github.com/clambodile/advent_of_code_2020/day1"
+	"github.com/clambodile/advent_of_code_2020/day2"
 )
 
 func main() {
-	fmt.Println(day1.ChallengeX(2))
+	fmt.Println(day2.Challenge1())
 }
