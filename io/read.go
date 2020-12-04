@@ -34,3 +34,12 @@ func ReadLines(filename string) ([]string, error) {
 	return lines, nil
 }
 
+func ReadLineGroups(filename string) ([]string, error) {
+	input, err := ioutil.ReadFile(filename)
+	if err != nil {
+		return nil, err
+	}
+	str := strings.TrimSpace(string(input))
+	lines := strings.Split(str, "\n\n")
+	return lines, nil
+}
