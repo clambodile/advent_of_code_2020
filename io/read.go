@@ -23,3 +23,14 @@ func ReadIntsFile(filename string) ([]int, error) {
 	}
 	return nums, nil
 }
+
+func ReadLines(filename string) ([]string, error) {
+	input, err := ioutil.ReadFile(filename)
+	if err != nil {
+		return nil, err
+	}
+	str := strings.TrimSpace(string(input))
+	lines := strings.Split(str, "\n")
+	return lines, nil
+}
+
