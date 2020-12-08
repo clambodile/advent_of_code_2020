@@ -30,6 +30,29 @@ func Challenge1() (int, error) {
 	return count, nil
 }
 
+func Challenge2() (int, error) {
+	filename := "./day7/d7.txt"
+	bagRules, err := readBagRules(filename)
+	if err != nil {
+		return 0, err
+	}
+	//How many total bags are inside a shiny gold bag?
+	shinyGold := "shiny gold"
+	return CountContents(shinyGold, bagRules), nil
+}
+
+func CountContents(bagColor string, bagRules map[string]*map[string]int) (int) {
+	contents, exists := bagRules[bagColor]
+	if !exists {
+		return 0
+	}
+	total := 0
+	for color, amount := range *contents {
+		total += amount + amount * CountContents(color, bagRules)
+	}
+	return total
+}
+
 var results = map[string][]string{}
 
 func ExpandBag(bagColor string, bagRules map[string]*map[string]int) ([]string, bool) {

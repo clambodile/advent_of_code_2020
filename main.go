@@ -18,7 +18,8 @@ func main() {
 	//logSolution(5, 2, day5.Challenge2)
 	//logSolution(6, 1, day6.Challenge1)
 	//logSolution(6, 2, day6.Challenge2)
-	logSolution(7, 1, day7.Challenge1)
+	//logSolution(7, 1, day7.Challenge1)
+	logSolution(7, 2, day7.Challenge2)
 }
 
 func logSolution(dayN, cN int, f func() (int, error))  {
