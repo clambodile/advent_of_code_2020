@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/clambodile/advent_of_code_2020/day8"
+	"github.com/clambodile/advent_of_code_2020/day9"
 )
 
 func main() {
@@ -21,7 +21,9 @@ func main() {
 	//logSolution(7, 1, day7.Challenge1)
 	//logSolution(7, 2, day7.Challenge2)
 	//logSolution(8, 1, day8.Challenge1)
-	logSolution(8, 2, day8.Challenge2)
+	//logSolution(8, 2, day8.Challenge2)
+	//logSolution(9, 1, day9.Challenge1)
+	logSolution(9, 2, day9.Challenge2)
 }
 
 
