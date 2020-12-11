@@ -3,7 +3,7 @@ package day5
 import (
 	"errors"
 	"fmt"
-	"github.com/clambodile/advent_of_code_2020/io"
+	"github.com/clambodile/advent_of_code_2020/util/io"
 	"math"
 )
 
@@ -39,8 +39,8 @@ func Challenge2() (int, error) {
 		}
 		seats[seatID] = true
 	}
-	for i := 0; i < len(seats) - 2; i++ {
-		if (seats[i] == true) && (seats[i + 1] != true) && (seats[i + 2] == true) {
+	for i := 0; i < len(seats)-2; i++ {
+		if (seats[i] == true) && (seats[i+1] != true) && (seats[i+2] == true) {
 			return i + 1, nil
 		}
 	}
@@ -56,16 +56,16 @@ func readSeatCode(code string) (int, error) {
 		} else if rn == 'B' {
 			rowBits[i] = 1
 		} else if rn == 'L' {
-			colBits[i - 7] = 0
+			colBits[i-7] = 0
 		} else if rn == 'R' {
-			colBits[i - 7] = 1
+			colBits[i-7] = 1
 		} else {
 			return 0, fmt.Errorf("unrecognized token: %c", rn)
 		}
 	}
 	row := readBinaryPartition(rowBits, 128)
 	col := readBinaryPartition(colBits, 8)
-	seatID := row * 8 + col
+	seatID := row*8 + col
 	return seatID, nil
 }
 

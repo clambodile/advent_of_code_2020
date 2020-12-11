@@ -22,7 +22,7 @@ func SumPairs(nums []int, target int) (first, second int, err error) {
 	return 0, 0, errors.New("no inputs match target")
 }
 
-func SumTrips(nums[]int, target int) (first, second, third int, err error) {
+func SumTrips(nums []int, target int) (first, second, third int, err error) {
 	var singles []int
 	pairSums := map[int][]int{}
 	for _, n := range nums {
@@ -32,14 +32,14 @@ func SumTrips(nums[]int, target int) (first, second, third int, err error) {
 			return companions[0], companions[1], n, nil
 		}
 		for _, single := range singles {
-			pairSums[single + n] = []int{single, n}
+			pairSums[single+n] = []int{single, n}
 		}
 		singles = append(singles, n)
 	}
 	return 0, 0, 0, errors.New("no inputs match target")
 }
 
-func SumN(nums[]int, n, target int) ([]int, error) {
+func SumN(nums []int, n, target int) ([]int, error) {
 	if n == 1 {
 		for _, num := range nums {
 			if num == target {
@@ -58,9 +58,9 @@ func SumN(nums[]int, n, target int) ([]int, error) {
 		if ln == 0 {
 			return []int{}, errors.New("no combination found")
 		}
-		newNums[i] = newNums[len(newNums) - 1]
-		newNums = newNums[:len(newNums) - 1]
-		companions, err := SumN(newNums, n - 1, newTarget)
+		newNums[i] = newNums[len(newNums)-1]
+		newNums = newNums[:len(newNums)-1]
+		companions, err := SumN(newNums, n-1, newTarget)
 		if err != nil {
 			continue
 		}

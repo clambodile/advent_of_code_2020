@@ -1,7 +1,7 @@
 package day7
 
 import (
-	"github.com/clambodile/advent_of_code_2020/io"
+	"github.com/clambodile/advent_of_code_2020/util/io"
 	"regexp"
 	"strconv"
 )
@@ -41,14 +41,14 @@ func Challenge2() (int, error) {
 	return CountContents(shinyGold, bagRules), nil
 }
 
-func CountContents(bagColor string, bagRules map[string]*map[string]int) (int) {
+func CountContents(bagColor string, bagRules map[string]*map[string]int) int {
 	contents, exists := bagRules[bagColor]
 	if !exists {
 		return 0
 	}
 	total := 0
 	for color, amount := range *contents {
-		total += amount + amount * CountContents(color, bagRules)
+		total += amount + amount*CountContents(color, bagRules)
 	}
 	return total
 }

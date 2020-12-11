@@ -12,7 +12,7 @@ func TestParseBagRule(t *testing.T) {
 		expected := map[string]*map[string]int{
 			"shiny lime": {
 				"muted magenta": 3,
-				"clear cyan": 3,
+				"clear cyan":    3,
 			},
 		}
 		assert.EqualValues(t, expected, result)

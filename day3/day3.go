@@ -2,14 +2,13 @@ package day3
 
 import (
 	"container/ring"
-	"github.com/clambodile/advent_of_code_2020/io"
+	"github.com/clambodile/advent_of_code_2020/util/io"
 )
 
 const (
 	open = '.'
 	tree = '#'
 )
-
 
 func Challenge1() (int, error) {
 	dX := 3
@@ -71,7 +70,7 @@ func countCollisions(rings []*ring.Ring, dX, dY int) (int, error) {
 	//traverse array of rings
 	for i := 0; i < len(rings); i += dY {
 		r := rings[i]
-		for j := 0; j < dX*(i / dY); j++ {
+		for j := 0; j < dX*(i/dY); j++ {
 			r = r.Next()
 		}
 		if r.Value == tree {
@@ -89,4 +88,3 @@ func runeRing(s string) *ring.Ring {
 	}
 	return r
 }
-

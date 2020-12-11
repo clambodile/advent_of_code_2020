@@ -1,7 +1,7 @@
 package day4
 
 import (
-	"github.com/clambodile/advent_of_code_2020/io"
+	"github.com/clambodile/advent_of_code_2020/util/io"
 	"regexp"
 	"strconv"
 	"strings"
@@ -14,7 +14,7 @@ func Challenge1() (int, error) {
 		return 0, err
 	}
 
-	requiredFields := []string {
+	requiredFields := []string{
 		"byr",
 		"iyr",
 		"eyr",
@@ -48,7 +48,7 @@ func Challenge2() (int, error) {
 		return 0, err
 	}
 
-	requiredFields := []string {
+	requiredFields := []string{
 		"byr",
 		"iyr",
 		"eyr",
@@ -57,7 +57,7 @@ func Challenge2() (int, error) {
 		"ecl",
 		"pid",
 	}
-	fieldValidations := map[string]func(string) bool {
+	fieldValidations := map[string]func(string) bool{
 		"byr": func(birthYear string) bool {
 			year, err := strconv.Atoi(birthYear)
 			if err != nil {
@@ -134,7 +134,7 @@ func Challenge2() (int, error) {
 	return validCount, nil
 }
 
-func allFieldsValid(fieldValidations map[string]func(string)bool, fields map[string]string) bool {
+func allFieldsValid(fieldValidations map[string]func(string) bool, fields map[string]string) bool {
 	for k, v := range fields {
 		f := fieldValidations[k]
 		if !f(v) {

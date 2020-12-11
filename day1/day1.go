@@ -1,7 +1,7 @@
 package day1
 
 import (
-	"github.com/clambodile/advent_of_code_2020/io"
+	"github.com/clambodile/advent_of_code_2020/util/io"
 )
 
 //given an input list of integers, find a pair which sum to 2020 and return the product

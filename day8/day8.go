@@ -2,16 +2,15 @@ package day8
 
 import (
 	"errors"
-	"github.com/clambodile/advent_of_code_2020/io"
+	"github.com/clambodile/advent_of_code_2020/util/io"
 	"strconv"
 	"strings"
 )
 
 type Instruction struct {
-	Op string
+	Op  string
 	Arg int
 }
-
 
 var Accumulator = 0
 var SeenIndices = map[int]bool{}
@@ -100,7 +99,7 @@ func parseInstruction(instr string) Instruction {
 	op := opArg[0]
 	arg, _ := strconv.Atoi(opArg[1])
 	return Instruction{
-		Op: op,
+		Op:  op,
 		Arg: arg,
 	}
 }

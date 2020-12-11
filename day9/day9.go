@@ -2,8 +2,8 @@ package day9
 
 import (
 	"github.com/clambodile/advent_of_code_2020/contiguous_sums"
-	"github.com/clambodile/advent_of_code_2020/io"
 	"github.com/clambodile/advent_of_code_2020/preamble_sums"
+	"github.com/clambodile/advent_of_code_2020/util/io"
 	"math"
 )
 

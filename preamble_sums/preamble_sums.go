@@ -1,8 +1,8 @@
 package preamble_sums
 
 type FoundSum struct {
-	M int
-	N int
+	M       int
+	N       int
 	LowestI int
 }
 
@@ -15,9 +15,13 @@ func ValidatePreambleSums(ns []int, pL int) []int {
 	for i, n := range ns {
 		//populate found sums
 		for j := i - pL; j < i; j++ {
-			if j < 0 { j = 0 }
+			if j < 0 {
+				j = 0
+			}
 			m := ns[j]
-			if n == m { continue }
+			if n == m {
+				continue
+			}
 			sum := n + m
 			fS := FoundSum{M: m, N: n, LowestI: j}
 			_, exists := sums[sum]
@@ -38,7 +42,7 @@ func ValidatePreambleSums(ns []int, pL int) []int {
 		}
 		valid := false
 		for _, s := range fSs {
-			if s.LowestI >= i - pL {
+			if s.LowestI >= i-pL {
 				valid = true
 				continue
 			}

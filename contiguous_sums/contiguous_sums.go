@@ -1,4 +1,4 @@
-package	contiguous_sums
+package contiguous_sums
 
 import "errors"
 
